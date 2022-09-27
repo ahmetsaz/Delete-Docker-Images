@@ -6,10 +6,13 @@ pipeline {
   }
   stages {
 
-     stage('Variable') {
+     stage('Docker Login') {
+      steps {
+        sh ('docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD')
+      }
       steps {
         sh "chmod -R 777 ./delete-old-image.sh"
-        sh "./delete-old-image.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD} $DOCKER_REPOSITORY $DAYS_AGO"
+        sh ('./delete-old-image.sh $DOCKER_USERNAME $DOCKER_PASSWORD $DOCKER_REPOSITORY $DAYS_AGO')
       }
     }   
    }
