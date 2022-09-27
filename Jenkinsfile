@@ -8,7 +8,7 @@ pipeline {
 
      stage('Variable') {
       steps {
-        sh 'echo $DOCKER_USERNAME $DOCKER_PASSWORD $DOCKER_REPOSITORY $DAYS_AGO'
+        sh 'bash delete-old-image.sh $DOCKER_USERNAME $DOCKER_PASSWORD $DOCKER_REPOSITORY $DAYS_AGO'
       }
     }   
    }
