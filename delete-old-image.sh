@@ -5,8 +5,12 @@ UPASS="${2}"
 REPOSITORY="${3}"
 DAYS_AGO="${4}"
 
+echo $DAYS_AGO $REPOSITORY $UPASS $UNAME
+
 # get token to be able to talk to Docker Hub
 TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d '{"username": "'${UNAME}'", "password": "'${UPASS}'"}' https://hub.docker.com/v2/users/login/ | jq -r .token)
+
+echo $TOKEN
 
 
 # get tags for repo
