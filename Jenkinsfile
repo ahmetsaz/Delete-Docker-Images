@@ -8,8 +8,8 @@ pipeline {
 
      stage('Variable') {
       steps {
-        sh 'chmod -R 777 ./delete-old-image.sh'
-        sh ('./delete-old-image.sh $DOCKER_USERNAME $DOCKER_PASSWORD $DOCKER_REPOSITORY $DAYS_AGO')
+        sh "chmod -R 777 ./delete-old-image.sh"
+        sh "./delete-old-image.sh ${DOCKER_USERNAME} ${DOCKER_PASSWORD} $DOCKER_REPOSITORY $DAYS_AGO"
       }
     }   
    }
