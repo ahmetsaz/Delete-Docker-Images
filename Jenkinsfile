@@ -4,13 +4,7 @@ pipeline {
      DOCKER_PASSWORD=credentials('docker-username')
      DOCKER_USERNAME=credentials('docker-password')
   }
-  stages {
-    stage('Docker Login') {
-       
-      steps {
-        sh ('docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD')
-      }
-    }   
+  stages {  
      stage('Delete image') {
        
       steps {
