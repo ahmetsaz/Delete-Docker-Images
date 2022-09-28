@@ -19,8 +19,8 @@ IMAGE_COUNT=$(curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2
 
 echo "IMAGE COUNT:${IMAGE_COUNT}" 
 
-if (($((IMAGE_COUNT)) <= 15 )); then
-  echo "image count less than 100"
+if (($((IMAGE_COUNT)) <= 5 )); then
+  echo "image count less than 5"
 else
     COUNT=0
     for IMAGE_TAG in ${IMAGE_TAGS}
